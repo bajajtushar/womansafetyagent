@@ -2,87 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Centered ElevenLabs Widget</title>
+    <title>Emergency Help Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://elevenlabs.io/convai-widget/index.js"
       async
       type="text/javascript"
     ></script>
     <style>
-      /* Ensure the page takes the full viewport height */
+      /* Base styles */
       html,
       body {
         height: 100%;
         margin: 0;
         padding: 0;
-      }
-      /* Center the container both vertically and horizontally */
-      .center-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Full viewport height */
-      }
-      /* Scale up the widget by 2x (or adjust as needed) */
-      .widget-container {
-        transform: scale(1.5);
-        transform-origin: center;
-        margin-right: 50px;
-        position: relative;
-        right: -50px; /* Move widget more to the right */
-        bottom: -50px; /* Move widget down */
-      }
-      /* Ensure the custom element behaves as a block-level element */
-      elevenlabs-convai {
-        display: block;
-        margin: 0 auto;
-      }
-      /* Add styles for heading and bullet points */
-      .content-section {
-        text-align: center;
-        margin-bottom: 40px;
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(to right, #f8f9fa, #ffffff);
       }
 
-      h1 {
-        color: #2c3e50;
-        font-size: 2.2em; /* Slightly reduced font size */
-        margin-bottom: 30px;
-        font-family: Arial, sans-serif;
-        white-space: nowrap; /* Prevent line breaks */
-      }
-
-      .reasons-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 800px;
-        text-align: left;
-      }
-
-      .reasons-list li {
-        margin: 15px 0;
-        padding: 15px 20px;
-        background: #f8f9fa;
-        border-left: 4px solid #2c3e50;
-        border-radius: 4px;
-        font-size: 1.1em;
-        line-height: 1.4;
-        color: #34495e;
-        transition: transform 0.2s;
-      }
-
-      .reasons-list li:hover {
-        transform: translateX(10px);
-        background: #eef2f7;
-      }
-
-      /* Update layout for side-by-side arrangement */
+      /* Page layout */
       .page-container {
         display: flex;
         height: 100vh;
-        padding: 20px;
+        padding: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
       }
 
+      /* Content section styles */
       .content-section {
         flex: 1;
         padding-right: 80px;
@@ -92,54 +42,124 @@
         max-width: 50%;
       }
 
-      .center-container {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end; /* Changed from center to flex-end to push widget right */
-        align-items: center;
-        min-width: 400px;
-        padding-right: 40px; /* Add padding to prevent touching the edge */
+      h1 {
+        color: #1a365d;
+        font-size: 2.2em;
+        margin-bottom: 40px;
+        font-weight: 700;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 15px;
       }
 
-      /* Adjust content section styles */
-      .content-section h1 {
-        text-align: left;
-        margin-bottom: 30px;
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: #2b6cb0;
+        border-radius: 2px;
       }
 
       .reasons-list {
-        max-width: 600px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .reasons-list li {
+        margin: 16px 0;
+        padding: 20px 25px;
+        background: #ffffff;
+        border-left: 5px solid #2b6cb0;
+        border-radius: 8px;
+        font-size: 1.05em;
+        line-height: 1.5;
+        color: #2d3748;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      }
+
+      .reasons-list li:hover {
+        transform: translateX(10px);
+        background: #f8fafc;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Widget container styles */
+      .center-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        min-width: 400px;
+        padding-right: 40px;
+      }
+
+      .widget-container {
+        transform: scale(1.5);
+        transform-origin: center;
+        margin-right: 50px;
+        position: relative;
+        right: -50px;
+        bottom: -50px;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Responsive design */
+      @media (max-width: 1200px) {
+        .page-container {
+          padding: 20px;
+        }
+
+        .content-section {
+          padding-right: 40px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        .reasons-list li {
+          font-size: 1em;
+          padding: 15px 20px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="page-container">
       <div class="content-section">
-        <h1>Call for Help and Register Complaint</h1>
+        <h1>Call for Help and Register Complain</h1>
         <ul class="reasons-list">
           <li>
-            Domestic Violence/Abuse: Physical or emotional harm inflicted by a
-            partner or family member.
+            <strong>Domestic Violence/Abuse:</strong> Physical or emotional harm
+            inflicted by a partner or family member.
           </li>
           <li>
-            Sexual Harassment or Assault: Unwanted sexual advances or forced
-            sexual acts.
+            <strong>Sexual Harassment or Assault:</strong> Unwanted sexual
+            advances or forced sexual acts.
           </li>
           <li>
-            Emotional or Mental Distress: Anxiety, depression, extreme stress,
-            or trauma.
+            <strong>Emotional or Mental Distress:</strong> Anxiety, depression,
+            extreme stress, or trauma.
           </li>
           <li>
-            Stalking or Threatening Behavior: Persistent harassment or
-            intimidation in-person or online.
+            <strong>Stalking or Threatening Behavior:</strong> Persistent
+            harassment or intimidation in-person or online.
           </li>
           <li>
-            Financial Exploitation: Being coerced or manipulated into giving up
-            money or assets.
+            <strong>Financial Exploitation:</strong> Being coerced or
+            manipulated into giving up money or assets.
           </li>
           <li>
-            Human Trafficking: Being forced or deceived into exploitative work
-            or sexual activity without freedom to leave.
+            <strong>Human Trafficking:</strong> Being forced or deceived into
+            exploitative work or sexual activity without freedom to leave.
           </li>
         </ul>
       </div>
